@@ -1,0 +1,11 @@
+{
+  "name": "onboarding-example-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "repository": "git@github.com:niaratech/onboarding-example.git",
+  "author": "Thiago Hirata <thiago.hirata@niara.tech>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}

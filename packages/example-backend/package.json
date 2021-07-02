@@ -1,0 +1,10 @@
+{
+    "name": "@niaratech-onboarding/example-backend",
+    "version": "1.0.0",
+    "repository": "git@github.com:niaratech/onboarding-example.git",
+    "author": "Thiago Hirata <thiago.hirata@niara.tech>",
+    "license": "MIT",
+    "devDependencies": {
+        "serverless": "^1.77.1"
+    }
+}

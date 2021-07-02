@@ -1,0 +1,11 @@
+node_modules/
+.serverless/
+dontcommit*
+ignoredbygit*
+
+__pycache__/
+
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
