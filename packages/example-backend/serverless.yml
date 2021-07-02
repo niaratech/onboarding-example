@@ -1,5 +1,16 @@
 service: onboarding-example-backend
 
+custom:
+  responseTemplate:
+    statusCodes:
+      500:
+        pattern: ".{1,}" # JSON response
+        template:
+          application/json: |-
+            {
+              "error": "$input.path("$.errorMessage")"
+            }
+
 provider:
   name: aws
   profile: bee2pay-sandbox
@@ -18,3 +29,21 @@ functions:
   helloWorld:
     handler: src.helloWorld.lambda_function.lambda_handler
     runtime: python3.7
+    events:
+      - http:
+          path: helloWorld
+          method: post
+          cors:
+            origin: "*"
+          integration: lambda
+          request:
+            parameters:
+              paths:
+                id: true
+            template:
+              application/json: |-
+                {
+                  "first_name": $input.json('first_name'),
+                  "last_name": $input.json('last_name')
+                }
+          response: ${{self:custom.responseTemplate}}
